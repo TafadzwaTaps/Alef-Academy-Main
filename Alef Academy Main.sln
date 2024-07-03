@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alef Academy Main", "Alef Academy Main\Alef Academy Main.csproj", "{4D058955-DBDB-4AD8-98B1-C8F77CE113DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D058955-DBDB-4AD8-98B1-C8F77CE113DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D058955-DBDB-4AD8-98B1-C8F77CE113DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D058955-DBDB-4AD8-98B1-C8F77CE113DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D058955-DBDB-4AD8-98B1-C8F77CE113DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C03BFD6F-04D8-4AAF-90F7-A9FF563C4C33}
+	EndGlobalSection
+EndGlobal
