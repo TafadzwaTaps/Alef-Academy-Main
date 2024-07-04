@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Alef_Academy_Main</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ALEF Online Academy</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,8 +22,36 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" id="coursesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Courses
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="coursesDropdown">
+                                <li><a class="dropdown-item" href="#">Sciences</a></li>
+                                <li><a class="dropdown-item" href="#">Language Studies</a></li>
+                                <li><a class="dropdown-item" href="#">Coding</a></li>
+                                <li><a class="dropdown-item" href="#">Math</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Internships">Internships Available</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Products">Products</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" id="languagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Languages
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languagesDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="translatePage('en')">English</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="translatePage('ar')">Arabic</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="translatePage('pl')">Polish</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="translatePage('de')">German</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -35,10 +63,9 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - Alef_Academy_Main - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - ALEF Online Academy - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
