@@ -150,6 +150,11 @@ form {
             background-color: #084b8a;
         }
 
+.bg-footer-color {
+    background-color: #0a3d62; /* Match your footer color */
+}
+
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .navbar-collapse {
