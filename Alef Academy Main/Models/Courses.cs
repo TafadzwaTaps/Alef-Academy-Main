@@ -3,7 +3,7 @@
     public class Courses
     {
         public int CourseId { get; set; }
-        public string? Name { get; set; }
+        public string? CourseName { get; set; }
         public string? Description { get; set; }
         public int InstructorId { get; set; }
 
@@ -21,9 +21,9 @@
             
         }
 
-        public Courses(string _name, string _description, int _instructiorID, int _categoryID, decimal _price, DateTime _startdate, DateTime _endDate, bool _isactive)
+        public Courses(string _courseName, string _description, int _instructiorID, int _categoryID, decimal _price, DateTime _startdate, DateTime _endDate, bool _isactive)
         {
-            Name = _name;
+            CourseName = _courseName;
             Description = _description;
             InstructorId = _instructiorID;
             CategoryId = _categoryID;

@@ -2,7 +2,7 @@
 {
     public class AdministrativeUsers
     {
-        public int AdminUserId;
+        public int AdminUserId { get; set; }
         public string? AdminUserName { get; set; }
         public string? AdminPassword { get; set; } 
         public string? AdminEmail { get; set; }
