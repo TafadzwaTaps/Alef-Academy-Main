@@ -8,7 +8,7 @@
 
         public string? Message { get; set; }
 
-        public DateTime InquiryDate { get; set; }
+        public DateTime InquiryDate { get; set; } = DateTime.Today;
 
         public ContactUs()
         {

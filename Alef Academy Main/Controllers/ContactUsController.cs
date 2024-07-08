@@ -56,6 +56,7 @@ namespace Alef_Academy_Main.Controllers
         {
             if (ModelState.IsValid)
             {
+                contactUs.InquiryDate = DateTime.Today;
                 _context.Add(contactUs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
