@@ -1,79 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using Alef_Academy_Main.Database;
 using Alef_Academy_Main.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Alef_Academy_Main.Controllers
 {
     public class InternshipsController : Controller
     {
-        private readonly AlefDbContext _context;
+        private readonly AlefDbContext _dbContext;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public InternshipsController(AlefDbContext context)
+        public InternshipsController(AlefDbContext dbContext, IWebHostEnvironment webHostEnvironment)
         {
-            _context = context;
+            _dbContext = dbContext;
+            _webHostEnvironment = webHostEnvironment;
         }
 
-        // GET: Internships
-        public async Task<IActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await _context.Internships.ToListAsync());
+            var internships = _dbContext.Internships.ToList();
+            return View(internships);
         }
 
-        // GET: Internships/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var internship = await _context.Internships
-                .FirstOrDefaultAsync(m => m.ApplicationId == id);
+            var internship = _dbContext.Internships.FirstOrDefault(i => i.ApplicationId == id);
             if (internship == null)
             {
                 return NotFound();
             }
-
             return View(internship);
         }
 
-        // GET: Internships/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Internships/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ApplicationId,Position,Name,Email,CvFileName,PortfolioLink,IsAwareOfUnpaid,IsAvailableASAP,IsCommitToThreeMonths,IsAwareOfCommitment,ApplicationDate")] Internship internship)
+        public ActionResult Create(Internship internship)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(internship);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                string wwwRootPath = _webHostEnvironment.WebRootPath;
+                string cvFilesPath = Path.Combine(wwwRootPath, "cvfiles");
+
+                // Ensure the cvfiles directory exists
+                if (!Directory.Exists(cvFilesPath))
+                {
+                    Directory.CreateDirectory(cvFilesPath);
+                }
+
+             
+                    if (internship.CvFile != null)
+                    {
+                        string fileName = Path.GetFileNameWithoutExtension(internship.CvFile.FileName);
+                        string extension = Path.GetExtension(internship.CvFile.FileName);
+                        internship.CvFileName = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                        string path = Path.Combine(cvFilesPath, fileName);
+
+                        using (var fileStream = new FileStream(path, FileMode.Create))
+                        {
+                            internship.CvFile.CopyTo(fileStream);
+                        }
+                    }
+
+                internship.ApplicationDate = DateTime.Now;
+
+                _dbContext.Internships.Add(internship);
+                    _dbContext.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                
+     
             }
             return View(internship);
         }
 
-        // GET: Internships/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+            public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var internship = await _context.Internships.FindAsync(id);
+            var internship = _dbContext.Internships.FirstOrDefault(i => i.ApplicationId == id);
             if (internship == null)
             {
                 return NotFound();
@@ -81,12 +87,9 @@ namespace Alef_Academy_Main.Controllers
             return View(internship);
         }
 
-        // POST: Internships/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ApplicationId,Position,Name,Email,CvFileName,PortfolioLink,IsAwareOfUnpaid,IsAvailableASAP,IsCommitToThreeMonths,IsAwareOfCommitment,ApplicationDate")] Internship internship)
+        public ActionResult Edit(int id, Internship internship)
         {
             if (id != internship.ApplicationId)
             {
@@ -95,63 +98,58 @@ namespace Alef_Academy_Main.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(internship);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!InternshipExists(internship.ApplicationId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _dbContext.Internships.Update(internship);
+                _dbContext.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(internship);
         }
 
-        // GET: Internships/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            var internship = _dbContext.Internships.FirstOrDefault(i => i.ApplicationId == id);
+            if (internship == null)
             {
                 return NotFound();
             }
+            return View(internship);
+        }
 
-            var internship = await _context.Internships
-                .FirstOrDefaultAsync(m => m.ApplicationId == id);
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var internship = _dbContext.Internships.FirstOrDefault(i => i.ApplicationId == id);
+            if (internship != null)
+            {
+                _dbContext.Internships.Remove(internship);
+                _dbContext.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public ActionResult Search(string position, bool isAvailableASAP, bool isAwareOfUnpaid)
+        {
+            var internships = _dbContext.Internships.Where(i =>
+                (string.IsNullOrEmpty(position) || i.Position.Contains(position)) &&
+                i.IsAvailableASAP == isAvailableASAP &&
+                i.IsAwareOfUnpaid == isAwareOfUnpaid).ToList();
+
+            return View(internships);
+        }
+
+        public ActionResult UpdateStatus(int id, bool isCommitToThreeMonths)
+        {
+            var internship = _dbContext.Internships.FirstOrDefault(i => i.ApplicationId == id);
             if (internship == null)
             {
                 return NotFound();
             }
 
-            return View(internship);
-        }
+            internship.IsCommitToThreeMonths = isCommitToThreeMonths;
+            _dbContext.SaveChanges();
 
-        // POST: Internships/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var internship = await _context.Internships.FindAsync(id);
-            if (internship != null)
-            {
-                _context.Internships.Remove(internship);
-            }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool InternshipExists(int id)
-        {
-            return _context.Internships.Any(e => e.ApplicationId == id);
         }
     }
 }

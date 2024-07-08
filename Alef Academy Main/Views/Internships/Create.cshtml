@@ -1,78 +1,90 @@
 ﻿@model Alef_Academy_Main.Models.Internship
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Internship Application";
 }
 
-<h1>Create</h1>
+<div class="container mt-4">
+    <div class="card border-dark">
+        <div class="card-header bg-dark text-white">
+            <h2>Create Internship Application</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-<h4>Internship</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Position" class="control-label"></label>
-                <input asp-for="Position" class="form-control" />
-                <span asp-validation-for="Position" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CvFileName" class="control-label"></label>
-                <input asp-for="CvFileName" class="form-control" />
-                <span asp-validation-for="CvFileName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PortfolioLink" class="control-label"></label>
-                <input asp-for="PortfolioLink" class="form-control" />
-                <span asp-validation-for="PortfolioLink" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsAwareOfUnpaid" /> @Html.DisplayNameFor(model => model.IsAwareOfUnpaid)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsAvailableASAP" /> @Html.DisplayNameFor(model => model.IsAvailableASAP)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsCommitToThreeMonths" /> @Html.DisplayNameFor(model => model.IsCommitToThreeMonths)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsAwareOfCommitment" /> @Html.DisplayNameFor(model => model.IsAwareOfCommitment)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ApplicationDate" class="control-label"></label>
-                <input asp-for="ApplicationDate" class="form-control" />
-                <span asp-validation-for="ApplicationDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <label asp-for="Position" class="control-label"></label>
+                    <input asp-for="Position" class="form-control" />
+                    <span asp-validation-for="Position" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CvFile" class="control-label"></label>
+                    <input asp-for="CvFile" type="file" class="form-control" />
+                    <span asp-validation-for="CvFile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PortfolioLink" class="control-label"></label>
+                    <input asp-for="PortfolioLink" class="form-control" />
+                    <span asp-validation-for="PortfolioLink" class="text-danger"></span>
+                </div>
+
+                <h3>Screening Questions</h3>
+
+                <div class="form-group">
+                    <label asp-for="IsAwareOfUnpaid" class="control-label">Are you aware that this is an unpaid position?</label>
+                    <select asp-for="IsAwareOfUnpaid" class="form-control">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                    <span asp-validation-for="IsAwareOfUnpaid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IsAvailableASAP" class="control-label">Are you available to start ASAP?</label>
+                    <select asp-for="IsAvailableASAP" class="form-control">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                    <span asp-validation-for="IsAvailableASAP" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IsCommitToThreeMonths" class="control-label">The internship is at least 3 months from once you start – agreed?</label>
+                    <select asp-for="IsCommitToThreeMonths" class="form-control">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                    <span asp-validation-for="IsCommitToThreeMonths" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="IsAwareOfCommitment" class="control-label">Are you aware that you have a commitment to continuously develop yourself?</label>
+                    <select asp-for="IsAwareOfCommitment" class="form-control">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                    <span asp-validation-for="IsAwareOfCommitment" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-4">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

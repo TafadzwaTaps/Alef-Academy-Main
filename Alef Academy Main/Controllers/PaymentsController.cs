@@ -54,7 +54,7 @@ namespace Alef_Academy_Main.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,CourseId,Amount,PaymentDate,PaymentStatus")] Payments payments)
+        public async Task<IActionResult> Create([Bind("UserId,CourseId,Amount,PaymentDate,PaymentStatus")] Payments payments)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Alef_Academy_Main.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,CourseId,Amount,PaymentDate,PaymentStatus")] Payments payments)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,CourseId,Amount,PaymentDate,PaymentStatus")] Payments payments)
         {
             if (id != payments.Id)
             {

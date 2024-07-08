@@ -54,7 +54,7 @@ namespace Alef_Academy_Main.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReviewId,UserID,CourseID,Rating,Comment,ReviewDate")] Reviews reviews)
+        public async Task<IActionResult> Create([Bind("UserID,CourseID,Rating,Comment,ReviewDate")] Reviews reviews)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Alef_Academy_Main.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReviewId,UserID,CourseID,Rating,Comment,ReviewDate")] Reviews reviews)
+        public async Task<IActionResult> Edit(int id, [Bind("UserID,CourseID,Rating,Comment,ReviewDate")] Reviews reviews)
         {
             if (id != reviews.ReviewId)
             {

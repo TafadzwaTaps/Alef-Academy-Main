@@ -1,4 +1,7 @@
-﻿namespace Alef_Academy_Main.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Alef_Academy_Main.Models
 {
     public class Internship
     {
@@ -20,7 +23,12 @@
 
         public bool IsAwareOfCommitment { get; set; }
 
-        public DateTime ApplicationDate {  get; set; }
+        public DateTime ApplicationDate { get; set; } = DateTime.Now;
+
+        [NotMapped] // This tells EF Core not to map this property to the database
+        [Required(ErrorMessage = "Please select a file.")]
+        [Display(Name = "File")]
+        public IFormFile? CvFile { get; set; }
 
         public Internship()
         {

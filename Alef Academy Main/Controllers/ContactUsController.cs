@@ -83,7 +83,7 @@ namespace Alef_Academy_Main.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("InquiryId,Name,Email,Message,InquiryDate")] ContactUs contactUs)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Email,Message,InquiryDate")] ContactUs contactUs)
         {
             if (id != contactUs.InquiryId)
             {

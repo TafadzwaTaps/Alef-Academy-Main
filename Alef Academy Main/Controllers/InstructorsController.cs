@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Alef_Academy_Main.Database;
 using Alef_Academy_Main.Models;
@@ -49,12 +44,9 @@ namespace Alef_Academy_Main.Controllers
             return View();
         }
 
-        // POST: Instructors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("InstructorId,InstructorsName,Bio,ContactEmail")] Instructors instructors)
+        public async Task<IActionResult> Create([Bind("InstructorsName,Bio,ContactEmail")] Instructors instructors)
         {
             if (ModelState.IsValid)
             {
@@ -81,12 +73,10 @@ namespace Alef_Academy_Main.Controllers
             return View(instructors);
         }
 
-        // POST: Instructors/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("InstructorId,InstructorsName,Bio,ContactEmail")] Instructors instructors)
+        public async Task<IActionResult> Edit(int id, [Bind("InstructorsName,Bio,ContactEmail")] Instructors instructors)
         {
             if (id != instructors.InstructorId)
             {
