@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Alef_Academy_Main.Database;
 using Alef_Academy_Main.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace Alef_Academy_Main.Controllers
 {
     public class ContactUsController : Controller
     {
         private readonly AlefDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public ContactUsController(AlefDbContext context)
+        public ContactUsController(AlefDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: ContactUs
@@ -150,6 +150,28 @@ namespace Alef_Academy_Main.Controllers
         private bool ContactUsExists(int id)
         {
             return _context.ContactUs.Any(e => e.InquiryId == id);
+        }
+
+        private async Task SendEmailAsync(ContactUs contactUs)
+        {
+            var smtpSettings = _configuration.GetSection("Smtp");
+            var smtpClient = new SmtpClient(smtpSettings["Host"])
+            {
+                Port = int.Parse(smtpSettings["Port"]),
+                Credentials = new NetworkCredential(smtpSettings["UserName"], smtpSettings["Password"]),
+                EnableSsl = bool.Parse(smtpSettings["EnableSsl"])
+            };
+
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(smtpSettings["UserName"]),
+                Subject = "New Contact Inquiry",
+                Body = $"Name: {contactUs.Name}\nEmail: {contactUs.Email}\nMessage: {contactUs.Message}\nInquiry Date: {contactUs.InquiryDate}",
+                IsBodyHtml = false,
+            };
+            mailMessage.To.Add("info@alefacademy.com");
+
+            await smtpClient.SendMailAsync(mailMessage);
         }
     }
 }
