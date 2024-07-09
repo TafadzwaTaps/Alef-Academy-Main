@@ -13,7 +13,7 @@ namespace Alef_Academy_Main.Models
         [Required]
         public string? Message { get; set; }
         
-        public DateTime InquiryDate { get; set; } = DateTime.Today;
+        public DateTime InquiryDate { get; set; } = DateTime.Now;
 
         public ContactUs()
         {
