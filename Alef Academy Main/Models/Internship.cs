@@ -8,8 +8,11 @@ namespace Alef_Academy_Main.Models
         public int ApplicationId { get; set; }
         
         public string? Position { get; set; }
+        [Required]
         public string? Name { get; set; }
+        [Required]
         public string? Email { get; set; }
+        [Required]
 
         public string? CvFileName { get; set; } 
         
