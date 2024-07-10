@@ -152,7 +152,7 @@ namespace Alef_Academy_Main.Controllers
             return _context.ContactUs.Any(e => e.InquiryId == id);
         }
 
-        private async Task SendEmailAsync(ContactUs contactUs)
+        private void SendEmail(ContactUs contactUs)
         {
             var smtpSettings = _configuration.GetSection("Smtp");
             var smtpClient = new SmtpClient(smtpSettings["Host"])
@@ -171,7 +171,7 @@ namespace Alef_Academy_Main.Controllers
             };
             mailMessage.To.Add("info@alefacademy.com");
 
-            await smtpClient.SendMailAsync(mailMessage);
+            smtpClient.Send(mailMessage);
         }
     }
 }
