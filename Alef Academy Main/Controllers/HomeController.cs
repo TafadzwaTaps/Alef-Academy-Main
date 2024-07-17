@@ -22,8 +22,13 @@ namespace Alef_Academy_Main.Controllers
         {
             return View();
         }
+ 
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
 
-        public IActionResult ContactUs()
+        public IActionResult Gallery()
         {
             return View();
         }

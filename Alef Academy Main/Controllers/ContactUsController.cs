@@ -59,6 +59,8 @@ namespace Alef_Academy_Main.Controllers
                 contactUs.InquiryDate = DateTime.Now;
                 _context.Add(contactUs);
                 await _context.SaveChangesAsync();
+
+                SendEmail(contactUs);
                 return RedirectToAction(nameof(Index));
             }
             return View(contactUs);

@@ -21,24 +21,14 @@ html {
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-}
-
-.hero {
-    background-image: url('/static/alef8.jpg');
+    background-image: url(../img/GettyImages-1089737754-scaled.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 100px 0;
-    height: 600px;
-    text-align: center;
+
 }
 
-.hero-text {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-}
+
 
 footer {
     background-color: #0a3d62;
