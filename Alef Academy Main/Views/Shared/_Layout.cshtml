@@ -96,6 +96,13 @@
     .navbar-nav .nav-item:hover .dropdown-menu {
         display: block;
     }
+
+    .footer {
+        margin-top: 5px;
+        font-size: 16px;
+        color: white;
+    }
+
 </style>
 
 <body>
@@ -129,7 +136,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Internships" asp-action="Index">Internships Available</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Internships" asp-action="Create">Internships Available</a>
                         </li>
 
                         <li class="nav-item">
@@ -160,23 +167,24 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style=" color: white;">
         <div>
-            <h3>Socials</h3>
-            <p>Follow us on:</p>
+            <h3 style="color: white;">Socials</h3>
+            <p style="color: white;">Follow us on:</p>
             <p>
-                <a href="https://www.facebook.com/p/ALEF-Online-Academy-61556102181844/">Facebook</a> |
-                <a href="https://www.linkedin.com/company/alef-online-academy/?originalSubdomain=pl">LinkedIn</a> |
-                <a href="https://www.instagram.com/alefonlineacademy/?locale=en-GB&hl=en">Instagram</a>
+                <a href="https://www.facebook.com/p/ALEF-Online-Academy-61556102181844/" style="color: blue;">Facebook</a> |
+                <a href="https://www.linkedin.com/company/alef-online-academy/?originalSubdomain=pl" style="color: blue;">LinkedIn</a> |
+                <a href="https://www.instagram.com/alefonlineacademy/?locale=en-GB&hl=en" style="color: blue;">Instagram</a>
             </p>
         </div>
         <div>
-            <p>Contact us at: <a href="mailto:info@alefacademy.com">info@alefacademy.com</a></p>
+            <p style="color: white;">Contact us at: <a href="mailto:info@alefacademy.com" style="color: blue;">info@alefacademy.com</a></p>
         </div>
         <div class="container">
-            &copy; 2024 - ALEF Online Academy - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <p style="color: white;">&copy; 2024 - ALEF Online Academy - <a asp-area="" asp-controller="Home" asp-action="Privacy" style="color: blue;">Privacy</a></p>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

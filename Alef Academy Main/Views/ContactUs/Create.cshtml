@@ -1,13 +1,13 @@
 ﻿@model Alef_Academy_Main.Models.ContactUs
 
 @{
-    ViewData["Title"] = "New Contact Inquiry";
-
+    ViewData["Title"] = "Contact Us";
 }
 
 <style>
     .form-container {
-        background-color: dimgrey; /* Grey background color */
+        background-color: lightgray; /* Grey background color */
+        background: url('../img/background.jpg');
         padding: 20px; /* Add padding for spacing */
         border: 2px solid #ccc; /* Add a border for separation */
         border-radius: 8px; /* Rounded corners */
@@ -16,10 +16,14 @@
     .form-control {
         background-color: #ffffff; /* White background for inputs */
     }
+
+    label.control-label {
+        color: white; /* White color for labels */
+    }
 </style>
 
 <div class="container mt-4">
-    <h2 class="text-center mb-4 text-primary">New Contact Inquiry</h2>
+    <h2 class="text-center mb-4 text-black">New Contact Inquiry</h2>
 
     <div class="row">
         <div class="col-md-6 offset-md-3 form-container">
@@ -52,7 +56,6 @@
 
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
                 </div>
             </form>
         </div>

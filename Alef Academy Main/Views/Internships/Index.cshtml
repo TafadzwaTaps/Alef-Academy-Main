@@ -41,11 +41,6 @@
                     <td>@Html.DisplayFor(modelItem => item.IsCommitToThreeMonths)</td>
                     <td>@Html.DisplayFor(modelItem => item.IsAwareOfCommitment)</td>
                     <td>@item.ApplicationDate.ToString("yyyy-MM-dd")</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.ApplicationId" class="btn btn-secondary btn-sm">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.ApplicationId" class="btn btn-info btn-sm">Details</a>
-                        <a asp-action="Delete" asp-route-id="@item.ApplicationId" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
                 </tr>
             }
         </tbody>

@@ -54,81 +54,29 @@ namespace Alef_Academy_Main.Controllers
             return View(course);
         }
 
-        public ActionResult Edit(int id)
+        public IActionResult Coding()
         {
-            var course = _dbContext.Courses.FirstOrDefault(c => c.CourseId == id);
-            if (course == null)
-            {
-                return NotFound();
-            }
-            return View(course);
+            return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Courses course)
+        public IActionResult Maths()
         {
-            if (id != course.CourseId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                _dbContext.Courses.Update(course);
-                _dbContext.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(course);
+            return View();
         }
 
-        public ActionResult Delete(int id)
+        public IActionResult Science()
         {
-            var course = _dbContext.Courses.FirstOrDefault(c => c.CourseId == id);
-            if (course == null)
-            {
-                return NotFound();
-            }
-            return View(course);
+            return View();
         }
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public IActionResult Business()
         {
-            var course = _dbContext.Courses.FirstOrDefault(c => c.CourseId == id);
-            if (course != null)
-            {
-                _dbContext.Courses.Remove(course);
-                _dbContext.SaveChanges();
-            }
-            return RedirectToAction(nameof(Index));
+            return View();
         }
 
-        public ActionResult Search(string courseName, bool isActive, decimal minPrice, decimal maxPrice)
+        public IActionResult LanguageStudies()
         {
-            var courses = _dbContext.Courses.Where(c =>
-                (string.IsNullOrEmpty(courseName) || c.CourseName.Contains(courseName)) &&
-                c.IsActive == isActive &&
-                c.Price >= minPrice &&
-                c.Price <= maxPrice).ToList();
-
-            return View(courses);
-        }
-
-    
-        public ActionResult UpdateStatus(int id, bool isActive)
-        {
-            var course = _dbContext.Courses.FirstOrDefault(c => c.CourseId == id);
-            if (course == null)
-            {
-                return NotFound();
-            }
-
-            course.IsActive = isActive;
-            _dbContext.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
+            return View();
         }
     }
 }
