@@ -1,36 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
             color: #333;
-        }
-
-        .privacyContainer {
-            max-width: 1400px;
-            margin: 50px auto;
+            background-color: #fff;
+            margin: 0;
             padding: 20px;
-            background: #fff;
         }
 
-        h1, h2, h3 {
+        h1, h2 {
             color: #0056b3;
-        }
-
-        a {
-            color: #0056b3;
-            text-decoration: none;
         }
 
         ul {
@@ -38,89 +24,102 @@
             margin-left: 20px;
         }
 
+        a {
+            color: #0056b3;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
     </style>
 </head>
 <body>
-    <div class=privacyContainer">
-        <h1>@ViewData["Title"]</h1>
-        <p>Last updated: July 4, 2024</p>
+    <h1>@ViewData["Title"]</h1>
+    <p>Last updated: July 4, 2024</p>
+    <p>
+        ALEF Online Academy ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://alefonlineacademy.com" target="_blank">alefacademy.com</a>, use our services, or interact with us in other ways. By using our website or services, you agree to the terms of this Privacy Policy.
+    </p>
 
-        <p>
-            ALEF Online Academy ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://alefonlineacademy.com" target="_blank">alefacademy.com</a>, use our services, or interact with us in other ways. By using our website or services, you agree to the terms of this Privacy Policy.
-        </p>
+    <h2>1. Information We Collect</h2>
+    <h3>Personal Information</h3>
+    <p>We may collect personal information that you voluntarily provide to us when you register on the website, enroll in courses, subscribe to our newsletter, or contact us. This information may include:</p>
+    <ul>
+        <li>Name</li>
+        <li>Email address</li>
+        <li>Phone number</li>
+        <li>Address</li>
+        <li>Payment information</li>
+        <li>Other personal information you choose to provide</li>
+    </ul>
 
-        <h2>1. Information We Collect</h2>
+    <h3>Usage Data</h3>
+    <p>We may automatically collect information about your interaction with our website, such as:</p>
+    <ul>
+        <li>IP address</li>
+        <li>Browser type and version</li>
+        <li>Pages you visit</li>
+        <li>Time and date of your visit</li>
+        <li>Time spent on those pages</li>
+        <li>Other diagnostic data</li>
+    </ul>
 
-        <h3>Personal Information</h3>
-        <p>We may collect personal information that you voluntarily provide to us when you register on the website, enroll in courses, subscribe to our newsletter, or contact us. This information may include:</p>
-        <ul>
-            <li>Name</li>
-            <li>Email address</li>
-            <li>Phone number</li>
-            <li>Address</li>
-            <li>Payment information</li>
-            <li>Other personal information you choose to provide</li>
-        </ul>
+    <h2>2. Use of Your Information</h2>
+    <p>We use the information we collect for various purposes, including:</p>
+    <ul>
+        <li>To provide, operate, and maintain our website and services</li>
+        <li>To improve, personalize, and expand our website and services</li>
+        <li>To communicate with you, including customer service, updates, and marketing</li>
+        <li>To process transactions and manage payments</li>
+        <li>To detect, prevent, and address technical issues</li>
+    </ul>
 
-        <h3>Usage Data</h3>
-        <p>We may automatically collect information about your interaction with our website, such as:</p>
-        <ul>
-            <li>IP address</li>
-            <li>Browser type and version</li>
-            <li>Pages you visit</li>
-            <li>Time and date of your visit</li>
-            <li>Time spent on those pages</li>
-            <li>Other diagnostic data</li>
-        </ul>
+    <h2>3. Sharing Your Information</h2>
+    <p>We may share your information in the following situations:</p>
+    <ul>
+        <li><strong>With Service Providers:</strong> We may share your information with third-party vendors, service providers, contractors, or agents who perform services for us or on our behalf.</li>
+        <li><strong>For Business Transfers:</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
+        <li><strong>With Your Consent:</strong> We may disclose your personal information for any other purpose with your consent.</li>
+    </ul>
 
-        <h2>2. Use of Your Information</h2>
-        <p>We use the information we collect for various purposes, including:</p>
-        <ul>
-            <li>To provide, operate, and maintain our website and services</li>
-            <li>To improve, personalize, and expand our website and services</li>
-            <li>To communicate with you, including customer service, updates, and marketing</li>
-            <li>To process transactions and manage payments</li>
-            <li>To detect, prevent, and address technical issues</li>
-        </ul>
+    <h2>4. Security of Your Information</h2>
+    <p>We use administrative, technical, and physical security measures to help protect your personal information. While we strive to protect your personal information, no method of transmission over the internet, or method of electronic storage is 100% secure, and we cannot guarantee its absolute security.</p>
 
-        <h2>3. Sharing Your Information</h2>
-        <p>We may share your information in the following situations:</p>
-        <ul>
-            <li><strong>With Service Providers:</strong> We may share your information with third-party vendors, service providers, contractors, or agents who perform services for us or on our behalf.</li>
-            <li><strong>For Business Transfers:</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
-            <li><strong>With Your Consent:</strong> We may disclose your personal information for any other purpose with your consent.</li>
-        </ul>
+    <h2>5. Your Data Protection Rights (GDPR)</h2>
+    <p>If you are located in the European Economic Area (EEA), you have the following data protection rights:</p>
+    <ul>
+        <li><strong>The right to access:</strong> You have the right to request copies of your personal information.</li>
+        <li><strong>The right to rectification:</strong> You have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.</li>
+        <li><strong>The right to erasure:</strong> You have the right to request that we erase your personal information, under certain conditions.</li>
+        <li><strong>The right to restrict processing:</strong> You have the right to request that we restrict the processing of your personal information, under certain conditions.</li>
+        <li><strong>The right to object to processing:</strong> You have the right to object to our processing of your personal information, under certain conditions.</li>
+        <li><strong>The right to data portability:</strong> You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+    </ul>
+    <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at our provided contact information.</p>
 
-        <h2>4. Security of Your Information</h2>
-        <p>We use administrative, technical, and physical security measures to help protect your personal information. While we strive to protect your personal information, no method of transmission over the internet, or method of electronic storage is 100% secure, and we cannot guarantee its absolute security.</p>
+    <p>For further information or to make a request, please contact us at: <a href="mailto:info@alefacademy.com">info@alefacademy.com</a></p>
 
-        <h2>5. Your Data Protection Rights</h2>
-        <p>Depending on your location, you may have the following rights regarding your personal information:</p>
-        <ul>
-            <li><strong>The right to access:</strong> You have the right to request copies of your personal information.</li>
-            <li><strong>The right to rectification:</strong> You have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.</li>
-            <li><strong>The right to erasure:</strong> You have the right to request that we erase your personal information, under certain conditions.</li>
-            <li><strong>The right to restrict processing:</strong> You have the right to request that we restrict the processing of your personal information, under certain conditions.</li>
-            <li><strong>The right to object to processing:</strong> You have the right to object to our processing of your personal information, under certain conditions.</li>
-            <li><strong>The right to data portability:</strong> You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
-        </ul>
-        <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at our provided contact information.</p>
-
-        <p>For further information or to make a request, please contact us at: <a href="mailto:info@alefacademy.com">info@alefacademy.com</a></p>
-
-        <h2>6. GDPR Compliance</h2>
-        <p>
-            We comply with the General Data Protection Regulation (GDPR) and ensure that your personal data is processed lawfully, fairly, and transparently. We only collect and process data for legitimate purposes and retain data no longer than necessary.
-        </p>
-        <p>
-            <strong>Data Subject Rights:</strong> Under GDPR, you have the right to access your data, correct inaccuracies, erase your data, restrict processing, object to processing, and data portability. You also have the right to withdraw consent at any time.
-        </p>
-        <p>
-            <strong>Data Breach Notifications:</strong> In the event of a data breach, we will notify affected individuals and relevant authorities within 72 hours as required by GDPR.
-        </p>
-        <p>
-            For more details on GDPR compliance and your rights, please visit our detailed GDPR compliance page or contact our Data Protection Officer at <a href="mailto:gdpr@alefacademy.com">gdpr@alefacademy.com</a>.
-        </p>
-    </div>
+    <footer class="footer">
+        <div>
+            <h3>Socials</h3>
+            <p>Follow us on:</p>
+            <p>
+                <a href="https://www.facebook.com/p/ALEF-Online-Academy-61556102181844/">Facebook</a> |
+                <a href="https://www.linkedin.com/company/alef-online-academy/?originalSubdomain=pl">LinkedIn</a> |
+                <a href="https://www.instagram.com/alefonlineacademy/?locale=en-GB&hl=en">Instagram</a>
+            </p>
+        </div>
+        <div>
+            <p>Contact us at: <a href="mailto:info@alefacademy.com">info@alefacademy.com</a></p>
+        </div>
+        <div class="container">
+            &copy; 2024 - ALEF Online Academy - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
 </body>
 </html>

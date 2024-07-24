@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using Alef_Academy_Main.Database;
 using Alef_Academy_Main.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Alef_Academy_Main.Controllers
 {
@@ -75,6 +69,11 @@ namespace Alef_Academy_Main.Controllers
         }
 
         public IActionResult LanguageStudies()
+        {
+            return View();
+        }
+
+        public IActionResult ArtAndDesign()
         {
             return View();
         }
