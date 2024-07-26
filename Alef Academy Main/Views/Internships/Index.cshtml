@@ -14,16 +14,16 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
-                <th>@Html.DisplayNameFor(model => model.Position)</th>
-                <th>@Html.DisplayNameFor(model => model.Name)</th>
-                <th>@Html.DisplayNameFor(model => model.Email)</th>
-                <th>@Html.DisplayNameFor(model => model.CvFileName)</th>
-                <th>@Html.DisplayNameFor(model => model.PortfolioLink)</th>
-                <th>@Html.DisplayNameFor(model => model.IsAwareOfUnpaid)</th>
-                <th>@Html.DisplayNameFor(model => model.IsAvailableASAP)</th>
-                <th>@Html.DisplayNameFor(model => model.IsCommitToThreeMonths)</th>
-                <th>@Html.DisplayNameFor(model => model.IsAwareOfCommitment)</th>
-                <th>@Html.DisplayNameFor(model => model.ApplicationDate)</th>
+                <th>@Html.DisplayNameFor(model => model.position)</th>
+                <th>@Html.DisplayNameFor(model => model.name)</th>
+                <th>@Html.DisplayNameFor(model => model.email)</th>
+                <th>@Html.DisplayNameFor(model => model.cvfilename)</th>
+                <th>@Html.DisplayNameFor(model => model.portfoliolink)</th>
+                <th>@Html.DisplayNameFor(model => model.isawareofunpaid)</th>
+                <th>@Html.DisplayNameFor(model => model.isavailableasap)</th>
+                <th>@Html.DisplayNameFor(model => model.iscommittothreemonths)</th>
+                <th>@Html.DisplayNameFor(model => model.isawareofcommitment)</th>
+                <th>@Html.DisplayNameFor(model => model.applicationdate)</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -31,16 +31,16 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.Position)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                    <td>@Html.DisplayFor(modelItem => item.CvFileName)</td>
-                    <td>@Html.DisplayFor(modelItem => item.PortfolioLink)</td>
-                    <td>@Html.DisplayFor(modelItem => item.IsAwareOfUnpaid)</td>
-                    <td>@Html.DisplayFor(modelItem => item.IsAvailableASAP)</td>
-                    <td>@Html.DisplayFor(modelItem => item.IsCommitToThreeMonths)</td>
-                    <td>@Html.DisplayFor(modelItem => item.IsAwareOfCommitment)</td>
-                    <td>@item.ApplicationDate.ToString("yyyy-MM-dd")</td>*-
+                    <td>@Html.DisplayFor(modelItem => item.position)</td>
+                    <td>@Html.DisplayFor(modelItem => item.name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.cvfilename)</td>
+                    <td>@Html.DisplayFor(modelItem => item.portfoliolink)</td>
+                    <td>@Html.DisplayFor(modelItem => item.isawareofunpaid)</td>
+                    <td>@Html.DisplayFor(modelItem => item.isavailableasap)</td>
+                    <td>@Html.DisplayFor(modelItem => item.iscommittothreemonths)</td>
+                    <td>@Html.DisplayFor(modelItem => item.isawareofcommitment)</td>
+                    <td>@item.applicationdate.ToString("yyyy-MM-dd")</td>*-
                 </tr>
             }
         </tbody>

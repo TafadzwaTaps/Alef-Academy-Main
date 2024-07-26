@@ -5,12 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-// Add services to the container.
 builder.Services.AddDbContext<AlefDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("AlefDatabaseConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("AlefDatabaseConnection")));
 builder.Services.AddSession(options =>
 {
-
     // Set a short timeout for easy testing. Change to a longer duration for production.
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;

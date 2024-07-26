@@ -5,28 +5,28 @@ namespace Alef_Academy_Main.Models
 {
     public class Internship
     {
-        public int ApplicationId { get; set; }
+        public int applicationid { get; set; }
         
-        public string? Position { get; set; }
+        public string? position { get; set; }
         [Required]
-        public string? Name { get; set; }
+        public string? name { get; set; }
         [Required]
-        public string? Email { get; set; }
+        public string? email { get; set; }
         [Required]
 
-        public string? CvFileName { get; set; } 
+        public string? cvfilename { get; set; } 
         
-        public string? PortfolioLink { get; set; }
+        public string? portfoliolink { get; set; }
 
-        public bool IsAwareOfUnpaid { get; set; }
+        public bool isawareofunpaid { get; set; }
 
-        public bool IsAvailableASAP {  get; set; }
+        public bool isavailableasap {  get; set; }
 
-        public bool IsCommitToThreeMonths { get; set; }
+        public bool iscommittothreemonths { get; set; }
 
-        public bool IsAwareOfCommitment { get; set; }
+        public bool isawareofcommitment { get; set; }
 
-        public DateTime ApplicationDate { get; set; } = DateTime.Now;
+        public DateTime applicationdate { get; set; } = DateTime.Now;
 
         [NotMapped] // This tells EF Core not to map this property to the database
         [Required(ErrorMessage = "Please select a file.")]
@@ -39,16 +39,16 @@ namespace Alef_Academy_Main.Models
         }
         public Internship(string _position , string _name, string _email, string _cvfileName, string _portfolioLink, bool _isAwareOfUnpaid, bool _isAvailableAsap, bool _isCommitedToThreeMonths, bool _isAWareOfCommitment, DateTime _applicationDate)
         {
-            Position = _position;
-            Name = _name;
-            Email = _email;
-            CvFileName = _cvfileName;
-            PortfolioLink = _portfolioLink;
-            IsAwareOfUnpaid = _isAwareOfUnpaid;
-            IsAvailableASAP = _isAvailableAsap;
-            IsCommitToThreeMonths = _isCommitedToThreeMonths;
-            IsAwareOfCommitment = _isAWareOfCommitment;
-            ApplicationDate = _applicationDate;
+            position = _position;
+            name = _name;
+            email = _email;
+            cvfilename = _cvfileName;
+            portfoliolink = _portfolioLink;
+            isawareofunpaid = _isAwareOfUnpaid;
+            isavailableasap = _isAvailableAsap;
+            iscommittothreemonths = _isCommitedToThreeMonths;
+            isawareofcommitment = _isAWareOfCommitment;
+            applicationdate = _applicationDate;
 
         }
     }
