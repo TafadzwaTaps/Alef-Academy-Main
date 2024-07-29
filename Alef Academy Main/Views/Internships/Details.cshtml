@@ -1,0 +1,78 @@
+﻿@model Alef_Academy_Main.Models.Internships
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Internships</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.position)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.position)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cvfilename)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cvfilename)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.portfoliolink)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.portfoliolink)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.isawareofunpaid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.isawareofunpaid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.isavailableasap)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.isavailableasap)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.iscommittothreemonths)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.iscommittothreemonths)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.isawareofcommitment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.isawareofcommitment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.applicationdate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.applicationdate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.applicationid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

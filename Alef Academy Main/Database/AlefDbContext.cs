@@ -16,9 +16,8 @@ namespace Alef_Academy_Main.Database
         public DbSet<ContactUs> contactus { get; set; }
         public DbSet<Courses> Courses { get; set; }
         public DbSet<Enrollments> Enrollments { get; set; }
-        public DbSet<Internship> Internships { get; set; }
+        public DbSet<Internships> Internships { get; set; }
         public DbSet<Payments> Payments { get; set; }
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,26 +36,24 @@ namespace Alef_Academy_Main.Database
             modelBuilder.Entity<Courses>().Property(p => p.EndDate).HasConversion(dateTimeConverter);
             modelBuilder.Entity<Enrollments>().Property(p => p.EnrollmentDate).HasConversion(dateTimeConverter);
             modelBuilder.Entity<Enrollments>().Property(p => p.CompletionDate).HasConversion(dateTimeConverter);
-            modelBuilder.Entity<Internship>().Property(p => p.applicationdate).HasConversion(dateTimeConverter);
+            modelBuilder.Entity<Internships>().Property(p => p.applicationdate).HasConversion(dateTimeConverter);
             modelBuilder.Entity<Payments>().Property(p => p.PaymentDate).HasConversion(dateTimeConverter);
 
-            // Apply keys and other configurations as needed
             modelBuilder.Entity<ContactUs>(entity =>
             {
                 entity.ToTable("contactus");
                 entity.HasKey(e => e.inquiryid);
-                // Configure column mappings if necessary
             });
+
             modelBuilder.Entity<Courses>().HasKey(u => u.CourseId);
             modelBuilder.Entity<Enrollments>().HasKey(o => o.EnrollmentID);
-            modelBuilder.Entity<Internship>(entity =>
+            modelBuilder.Entity<Internships>(entity =>
             {
                 entity.ToTable("internships");
                 entity.HasKey(s => s.applicationid);
-                // Configure column mappings if necessary
             });
-            modelBuilder.Entity<Payments>().HasKey(r => r.Id);
 
+            modelBuilder.Entity<Payments>().HasKey(r => r.Id);
         }
     }
 }

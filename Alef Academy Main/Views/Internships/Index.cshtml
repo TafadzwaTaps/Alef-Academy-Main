@@ -1,48 +1,89 @@
-﻿@model IEnumerable<Alef_Academy_Main.Models.Internship>
+﻿@model IEnumerable<Alef_Academy_Main.Models.Internships>
 
 @{
-    ViewData["Title"] = "Internship Applications";
+    ViewData["Title"] = "Index";
 }
 
-<h1 class="text-center my-4">@ViewData["Title"]</h1>
+<h1>Index</h1>
 
-<p class="text-center">
-    <a asp-action="Create" class="btn btn-primary">Apply For Internship</a>
+<p>
+    <a asp-action="Create">Create New</a>
 </p>
-
-<div class="table-responsive">
-    <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.position)</th>
-                <th>@Html.DisplayNameFor(model => model.name)</th>
-                <th>@Html.DisplayNameFor(model => model.email)</th>
-                <th>@Html.DisplayNameFor(model => model.cvfilename)</th>
-                <th>@Html.DisplayNameFor(model => model.portfoliolink)</th>
-                <th>@Html.DisplayNameFor(model => model.isawareofunpaid)</th>
-                <th>@Html.DisplayNameFor(model => model.isavailableasap)</th>
-                <th>@Html.DisplayNameFor(model => model.iscommittothreemonths)</th>
-                <th>@Html.DisplayNameFor(model => model.isawareofcommitment)</th>
-                <th>@Html.DisplayNameFor(model => model.applicationdate)</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.position)</td>
-                    <td>@Html.DisplayFor(modelItem => item.name)</td>
-                    <td>@Html.DisplayFor(modelItem => item.email)</td>
-                    <td>@Html.DisplayFor(modelItem => item.cvfilename)</td>
-                    <td>@Html.DisplayFor(modelItem => item.portfoliolink)</td>
-                    <td>@Html.DisplayFor(modelItem => item.isawareofunpaid)</td>
-                    <td>@Html.DisplayFor(modelItem => item.isavailableasap)</td>
-                    <td>@Html.DisplayFor(modelItem => item.iscommittothreemonths)</td>
-                    <td>@Html.DisplayFor(modelItem => item.isawareofcommitment)</td>
-                    <td>@item.applicationdate.ToString("yyyy-MM-dd")</td>*-
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cvfilename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.portfoliolink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isawareofunpaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isavailableasap)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iscommittothreemonths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isawareofcommitment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.applicationdate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cvfilename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.portfoliolink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isawareofunpaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isavailableasap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iscommittothreemonths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isawareofcommitment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.applicationdate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.applicationid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.applicationid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.applicationid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
