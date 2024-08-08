@@ -25,13 +25,6 @@ body {
 
 }
 
-footer {
-    background-color: #0a3d62;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
 .internships-main {
     background-image: url('/static/ALEF2.jpg');
     background-size: cover;
