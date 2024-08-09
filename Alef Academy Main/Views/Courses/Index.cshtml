@@ -1,63 +1,376 @@
-﻿@model IEnumerable<Alef_Academy_Main.Models.Courses>
+﻿<!DOCTYPE html>
+<html lang="en">
 
-@{
-    ViewData["Title"] = "Courses Gallery";
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* General Styles */
+        body {
+            color: black;
+            background-color: #f8f9fa;
+        }
 
-<div class="container mt-4">
-    <h1 class="text-center mb-4">Our Courses Gallery</h1>
+        h1, h2, h3 {
+            color: black;
+        }
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100">
-                <img src="/images/AlefScience.jpeg" class="card-img-top" alt="Science">
-                <div class="card-body">
-                    <h5 class="card-title">Scientific Exploration</h5>
-                    <p class="card-text">Delve into the wonders of mathematics, physics, and other scientific disciplines, unraveling the complexities of our universe.</p>
+        .container {
+            margin-bottom: 40px;
+        }
+
+        .course-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Course Section Header */
+        .course-header {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .course-description {
+            margin-bottom: 30px;
+            color: black;
+        }
+
+        /* Course Box Styles */
+        .course-box {
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            color: black;
+        }
+
+        /* Background colors for different courses */
+        .english-course-box {
+            background-color: #3E4997;
+            color: white;
+        }
+
+        .german-course-box {
+            background-color: #FFF7D8;
+        }
+
+        .polish-course-box {
+            background-color: #FF9E9E;
+            color: white;
+        }
+
+
+
+        .course-title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .course-features {
+            margin-top: 20px;
+        }
+
+        .course-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+            .course-feature i {
+                color: red;
+                margin-right: 10px;
+            }
+
+        .course-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .enroll-button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+        /* Course Options Styles */
+        .course-options {
+            margin-top: 40px;
+        }
+
+        .course-option {
+            text-align: center;
+            padding: 20px;
+            background-color: #F4F4F8;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        /* Booking Section Styles */
+        .booking-header {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .booking-description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            color: black;
+        }
+
+        .booking-card {
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            color: black;
+        }
+
+        .call-card {
+            background-color: #FCEADE;
+            color: #424994;
+        }
+
+        .email-card {
+            background-color: #FCEADE;
+            color: #B34A3E;
+        }
+
+        .dm-card {
+            background-color: #FCEADE;
+            color: #F48C4A;
+        }
+
+        .contact-info {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+            .social-icons img {
+                width: 40px;
+                margin-right: 10px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="text-center">
+            <h1 class="course-header">English Courses</h1>
+            <p class="course-description">
+                Our English courses are fully customized to meet your specific needs, whether you want to improve general skills,
+                prepare for exams, or focus on job interview techniques.
+            </p>
+        </div>
+
+        <div class="row course-box english-course-box">
+            <div class="col-md-4 text-center">
+                <img src="~/img/english course illust.png" alt="English course image" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h2 class="course-title">English</h2>
+                <div class="course-features">
+                    <div class="course-feature">
+                        <i class="fa fa-star"></i>
+                        <p>Tailored lessons to enhance speaking, listening, reading, and writing skills.</p>
+                    </div>
+                    <div class="course-feature">
+                        <i class="fa fa-star"></i>
+                        <p>Suitable for all proficiency levels, from beginner to advanced.</p>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <a href="@Url.Action("Details", "Courses", new { id = 1 })" class="btn btn-primary">View Details</a>
-                </div>
+                <button class="enroll-button">Enroll</button>
             </div>
         </div>
 
-        <div class="col">
-            <div class="card h-100">
-                <img src="/images/Mathematics.jpg" class="card-img-top" alt="Math">
-                <div class="card-body">
-                    <h5 class="card-title">Advanced Mathematics</h5>
-                    <p class="card-text">Explore advanced mathematical concepts and problem-solving techniques.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="@Url.Action("Details", "Courses", new { id = 2 })" class="btn btn-primary">View Details</a>
+        <div class="row course-options">
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>Job Interview Preparation</h3>
+                    <p>Specialized coaching for job interviews in English, including mock interviews and practical tips.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="/images/language.jpg" class="card-img-top" alt="Language Studies">
-                <div class="card-body">
-                    <h5 class="card-title">Language Studies</h5>
-                    <p class="card-text">Learn new languages and improve your proficiency in existing ones.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="@Url.Action("Details", "Courses", new { id = 3 })" class="btn btn-primary">View Details</a>
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>English for Specific Purposes</h3>
+                    <p>Customized courses for particular fields, such as business English, academic English, or technical English.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="col">
-            <div class="card h-100">
-                <img src="/images/coding.jpg" class="card-img-top" alt="Coding">
-                <div class="card-body">
-                    <h5 class="card-title">Introduction to Coding</h5>
-                    <p class="card-text">Begin your journey into the world of coding with our comprehensive courses.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="@Url.Action("Details", "Courses", new { id = 4 })" class="btn btn-primary">View Details</a>
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>Exams Preparation</h3>
+                    <p>Comprehensive preparation for standardized tests like IELTS, TOEFL, Cambridge exams, and more.</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="container">
+        <div class="text-center">
+            <h1 class="course-header">German Courses</h1>
+            <p class="course-description">
+                Learn German with personalized lessons that cater to your individual goals, whether for travel, work, or personal enrichment.
+            </p>
+        </div>
+
+        <div class="row course-box german-course-box">
+            <div class="col-md-4 text-center">
+                <img src="~/img/german course illust.png" alt="German course image" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h2 class="course-title">German</h2>
+                <div class="course-features">
+                    <div class="course-feature">
+                        <i class="fa fa-star"></i>
+                        <p>Develop your German language skills for everyday communication.</p>
+                    </div>
+                    <div class="course-feature">
+                        <i class="fa fa-star"></i>
+                        <p>Suitable for all proficiency levels, from beginner to advanced.</p>
+                    </div>
+                </div>
+                <button class="enroll-button">Enroll</button>
+            </div>
+        </div>
+
+        <div class="row course-options">
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>Exams Preparation</h3>
+                    <p>Prepare for exams like Goethe-Zertifikat, TestDaF, and others. Targeted practice to achieve certification and academic goals.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>Job Interview Preparation</h3>
+                    <p>Tailored sessions to help you succeed in German-speaking job markets.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>German for Specific Purposes</h3>
+                    <p>Courses designed for specific sectors such as business, tourism, or academics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="text-center">
+            <h1 class="course-header">Polish Courses</h1>
+            <p class="course-description">
+                Enhance your Polish skills with classes that are designed around your needs, from casual conversation to formal business communication.
+            </p>
+        </div>
+
+        <div class="row course-box polish-course-box">
+            <div class="col-md-4 text-center">
+                <img src="~/img/polish course illust.png" alt="Polish course image" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h2 class="course-title">Polish</h2>
+                <div class="course-features">
+                    <div class="course-feature">
+                        <i class="fa fa-star"></i>
+                        <p>Improve your Polish language proficiency for daily communication or professional use.</p>
+                    </div>
+                    <div class="course-feature">
+                        <i class="fa fa-star"></i>
+                        <p>Beginner to advanced levels, with a focus on real-life application.</p>
+                    </div>
+                </div>
+                <button class="enroll-button">Enroll</button>
+            </div>
+        </div>
+
+        <div class="row course-options">
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>Exams Preparation</h3>
+                    <p>Get ready for Polish language exams like the Państwowy Egzamin Certyfikatowy z Języka Polskiego.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>Job Interview Preparation</h3>
+                    <p>Courses tailored for job interview success in Poland.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="course-option">
+                    <h3>Polish for Specific Purposes</h3>
+                    <p>Specialized lessons for sectors such as healthcare, business, or academia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="booking-section">
+            <h2 class="booking-header">Ready to Start?</h2>
+            <p class="booking-description">Contact us today to book your course or learn more about our programs!</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="booking-card call-card">
+                        <div class="card-content">
+                            <h3>Call Us</h3>
+                            <p>Directly to speak with our team.</p>
+                            <p>
+                                +48 883 391 937 PL
+                                <br />
+                                +48 578 773 222 ENG
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="booking-card email-card">
+                        <div class="card-content">
+                            <h3>Email Us</h3>
+                            <p>Email us and we will respond promptly.</p>
+                            <p>grow@alefonlineacademy.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="booking-card dm-card">
+                        <div class="card-content">
+                            <h3>DM Us</h3>
+                            <p>Our social media platforms for quick queries and arrangements.</p>
+                            <div class="social-icons">
+                                <img src="https://img.icons8.com/fluent/48/000000/facebook-new.png" />
+                                <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" />
+                                <img src="https://img.icons8.com/fluent/48/000000/twitter.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

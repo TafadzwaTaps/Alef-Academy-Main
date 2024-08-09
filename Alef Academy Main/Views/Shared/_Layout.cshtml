@@ -160,22 +160,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 justify-content-center">
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-black dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Courses
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="@Url.Action("Science", "Courses")">Science</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Maths", "Courses")">Maths</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Coding", "Courses")">Coding</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("LanguageStudies", "Courses")">Language Studies</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Business", "Courses")">Business</a></li>
-                                <!-- Add more dropdown options as needed -->
-                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Careers">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
+                        </li>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="Internships" asp-action="Create">Internships Available</a>

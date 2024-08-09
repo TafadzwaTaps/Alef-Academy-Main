@@ -1,111 +1,243 @@
-﻿@{
-    ViewData["Title"] = "About Us";
-}
-
-<style>
-    .about-container {
-        max-width: 900px;
-        margin: 0 auto;
-        background: #f8f9fa;
-        border: 2px solid #007bff;
-        border-radius: 10px;
-        padding: 30px;
-        color: #333;
-        backdrop-filter: blur(4px);
-        margin-bottom: 40px;
-    }
-
-        .about-container h1 {
-            text-align: center;
-            color: #007bff;
-            margin-bottom: 20px;
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
         }
 
-        .about-container p {
-            font-size: 18px;
+        .main-banner {
+            background-color: #ffe6cc;
+            border-radius: 20px;
+            padding: 40px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-banner h2 {
+            font-size: 2.5rem;
+            color: #814c30;
+            margin-bottom: 20px;
+            justify-content: space-between;
+        }
+
+        .main-banner p {
+            font-size: 1.2rem;
+            color: #5a3e28;
             line-height: 1.6;
+        }
+
+        .apply-btn {
+            background-color: #424994;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .apply-btn:hover {
+            background-color: #373e8a;
+        }
+
+        .about-us {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin-bottom: 20px;
         }
 
-    .contact-info {
-        text-align: center;
-        color: #333;
-        margin-top: 20px;
-    }
-
-        .contact-info h3 {
+        .founder {
+            display: flex;
+            align-items: center;
+            gap: 20px;
             margin-bottom: 20px;
         }
 
-        .contact-info p {
-            font-size: 16px;
-            margin-bottom: 10px;
+            .founder img {
+                width: 400px;
+                height: 420px;
+                border-radius: 50px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+
+        .founder-content {
+            width: 50%;
+            font-size: 20px;
+            color: #000000;
         }
 
-        .contact-info i {
-            margin-right: 10px;
+
+        .call-to-action {
+            text-align: center;
+            background-color: #f48c4a;
+            padding: 40px 30px;
+            color: white;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 1200px;
         }
 
-    .key-info {
-        margin-top: 30px;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .info-box {
-        background: #e9ecef;
-        border-radius: 5px;
-        padding: 20px;
-        width: 48%;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-        .info-box h4 {
-            margin-bottom: 10px;
-            color: #007bff;
+        .call-to-action h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
-</style>
 
-<div class="about-container">
-    <h1>About Alef Online Academy</h1>
-    <p>Alef Online Academy is dedicated to empowering lifelong learning 🎓💻. We offer comprehensive courses in languages, sciences, and technology to help students and professionals develop essential skills. Our programs include:</p>
-    <ul>
-        <li>🌍 Language learning</li>
-        <li>🔬 Math, physics, and other sciences</li>
-        <li>💻 Coding and computer science</li>
-    </ul>
-    <p>We're committed to personalized learning, with interactive lessons, expert instructors, and dedicated support. 🧑‍🏫 Join our vibrant community and unlock your full potential! ✨</p>
-    <div class="key-info">
-        <div class="info-box">
-            <h4>Founded</h4>
-            <p>2023</p>
-        </div>
-        <div class="info-box">
-            <h4>Headquarters</h4>
-            <p>Krakow, Poland</p>
-        </div>
-        <div class="info-box">
-            <h4>Industry</h4>
-            <p>Language Schools</p>
-        </div>
-        <div class="info-box">
-            <h4>Company Size</h4>
-            <p>2-10 employees</p>
-        </div>
-        <div class="info-box">
-            <h4>Website</h4>
-            <p><a href="http://www.alefonlineacademy.com" target="_blank">www.alefonlineacademy.com</a></p>
-        </div>
-        <div class="info-box">
-            <h4>LinkedIn Members</h4>
-            <p>8 associated members</p>
+        .call-to-action p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .call-to-action a {
+            color: #424994;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+
+        .call-to-action a:hover {
+            color: #333;
+        }
+
+        .course-card {
+            background-color: #ffe6cc;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: fill;
+        }
+
+        .course-card .content {
+            padding: 20px;
+        }
+
+        .course-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .course-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .course-card .enroll-button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: #f57c00;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .course-card .enroll-button:hover {
+            background-color: #ef6c00;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="main-banner">
+        <div>
+            <h2>Why ALEF Online Academy?</h2>
+            <p>At ALEF Online Academy, we understand that learning a new language can be a daunting task. 
+               That's why we are dedicated to making the experience as engaging and effective as possible. 
+               Our unique approach combines individualized attention with innovative teaching methods to help students become fluent English speakers. 
+               We provide a welcoming and dynamic online learning environment that encourages critical thinking and lifelong learning.</p>
         </div>
     </div>
-    <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p><i class="fa fa-phone"></i> +48 578 773 222</p>
-        <p><i class="fa fa-envelope"></i> info@alefonlineacademy.com</p>
+
+    <
+    <div class="about-us">
+        <section class="founder">
+            <img src="~/img/Medhat.jpg" alt="Medhat Adel Emam">
+            <div class="founder-content">
+                <h3>Medhat Adel Emam</h3>
+                <p>Medhat Adel Emam is a seasoned Global Business Developer with a passion for helping companies generate revenue and expand their global presence. He focuses on innovation, product and service development, and enhancing employees' high-income skills to excel.</p>
+                <p>With 12 years of experience in business consultancy and an MSc in Business Management and Finance, Medhat brings a wealth of knowledge to ALEF Online Academy. Additionally, he serves as a Cybersecurity Operations Analyst, helping companies safeguard their digital assets and protect against cyber threats.</p>
+            </div>
+        </section>
+
+        <section class="founder">
+            <div class="founder-content">
+                <h3>Monika Niedźwiedzka</h3>
+                <p>Monika Niedźwiedzka is passionate about teaching English to young learners, incorporating neurodidactics, storytelling, and engaging activities to make learning effortless and enjoyable. Her teaching approach is characterized by deep respect for each student and their individual needs.</p>
+                <p>Monika runs a language school in Poland and an international educational academy where challenging subjects are demystified. Her dedication to innovative teaching methods ensures that students not only learn effectively but also enjoy the process.</p>
+            </div>
+            <img src="~/img/Monika.jpg" alt="Monika Niedźwiedzka">
+        </section>
     </div>
-</div>
+
+
+    <section id="courses" class="section">
+        <h2 class="text-center">Our Top Courses</h2>
+        <div class="d-flex justify-content-center flex-wrap">
+            <div class="course-card">
+                <div class="content">
+                    <h3>Our Values</h3>
+                    <img src="~/img/our values.png" alt="Our Values">
+                    <p>At ALEF Online Academy, we embrace new ideas and technologies to enhance the learning experience, demonstrating our commitment to innovation.
+                        We honor the individuality of each student, tailoring our teaching methods to meet their unique needs.</p>
+               </div>
+            </div>
+            <div class="course-card">
+                <div class="content">
+                    <h3>Our Vision</h3>
+                    <img src="~/img/our vision.png" alt="Our Vision">
+                    <p>Alef envisions a future where language education transcends boundaries, empowering individuals to connect, communicate, and thrive in a globalised world.</p>
+
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="content">
+                    <h3>Our Mission</h3>
+                    <img src="~/img/our mission.png" alt="Our Mission">
+                    <p>To provide a transformative learning experience that equips individuals with the skills and confidence to engage with the world in meaningful ways. 
+                        We achieve this by offering innovative, personalised, and culturally immersive education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

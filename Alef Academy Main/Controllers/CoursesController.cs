@@ -15,37 +15,7 @@ namespace Alef_Academy_Main.Controllers
 
         public ActionResult Index()
         {
-            var courses = _dbContext.Courses.ToList();
-            return View(courses);
-        }
-
-
-        public ActionResult Details(int id)
-        {
-            var course = _dbContext.Courses.FirstOrDefault(c => c.CourseId == id);
-            if (course == null)
-            {
-                return NotFound();
-            }
-            return View(course);
-        }
-
-        public ActionResult Create()
-        {
             return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Courses course)
-        {
-            if (ModelState.IsValid)
-            {
-                _dbContext.Courses.Add(course);
-                _dbContext.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(course);
         }
 
         public IActionResult Coding()
