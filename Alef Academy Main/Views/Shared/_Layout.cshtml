@@ -15,6 +15,27 @@
         border-color: white;
     }
 
+    /* Navbar item spacing */
+    .navbar-nav .nav-item {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+        .navbar-nav .nav-item .nav-link {
+            padding: -8px 15px;
+        }
+
+    /* Language flag */
+
+    #languageFlag img {
+        cursor: pointer;
+    }
+
+    #languageFlag{
+        margin-right: 50px;
+        padding: px 15px;
+    }
+
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
@@ -173,33 +194,25 @@
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
                         </li>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="Internships" asp-action="Create">Internships Available</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="ContactUs" asp-action="Create">Contact Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-black" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
                         </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" id="languagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Languages
+                        <li class="nav-item">
+                            <a class="nav-link" id="languageFlag" href="#">
+                                <img src="~/img/England.png" alt="Language" style="width: 24px; height: 16px;">
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="languagesDropdown">
-                                <li><a class="dropdown-item" href="#" onclick="translatePage('en')">English</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="translatePage('ar')">Arabic</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="translatePage('pl')">Polish</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="translatePage('de')">German</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -212,36 +225,36 @@
                 <h3>Contact Information</h3>
                 <ul>
                     <li>ALEF Online Academy</li>
-                    <li>123 Language Way, City, Country 12345</li>
-                    <li>Phone: +123-456-7890</li>
+                    <li>Ul. Maszewska 2D, 72-100 Goleniów, Poland</li>
+                    <li>Phone: +48 883 391 937 (PL), <br /> +48 578 773 222 (ENG)</li>
                     <li>Email: info@alefonlineacademy.com</li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#courses">Courses</a></li>
-                    <li><a href="#careers">Careers</a></li>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a class= asp-controller ="Home" asp-action="Index">Home</a></li>
+                    <li><a class= asp-controller ="Courses" asp-action="Index">Courses</a></li>
+                    <li><a class= asp-controller ="Home" asp-action="Careers">Careers</a></li>
+                    <li><a class= asp-controller ="Home" asp-action="Shop">Shop</a></li>
+                    <li><a class= asp-controller ="Home" asp-action="AboutUs">About Us</a></li>
+                    <li><a class= asp-controller ="ContactUs" asp-action="Create">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Social Media</h3>
                 <ul>
-                    <li><a href="https://www.facebook.com/alefonlineacademy">Facebook</a></li>
+                    <li><a href="https://www.facebook.com/p/ALEF-Online-Academy-61556102181844/">Facebook</a></li>
                     <li><a href="https://twitter.com/alefonlineacademy">Twitter</a></li>
-                    <li><a href="https://www.linkedin.com/company/alefonlineacademy">LinkedIn</a></li>
-                    <li><a href="https://www.instagram.com/alefonlineacademy">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/alef-online-academy/?originalSubdomain=pl">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/alefonlineacademy/?locale=en-GB&hl=en">Instagram</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Subscribe to Our Newsletter</h3>
                 <form>
                     <input type="email" placeholder="Enter your email" style="color: black;" />
-                    <button type="submit">Subscribe</button>
+                    <button type="submit" style="background-color: black">Subscribe</button>
                 </form>
             </div>
         </div>
@@ -249,5 +262,33 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     @RenderSection("Scripts", required: false)
+    <script>
+    function changeFlag(langCode) {
+        var flagSrc;
+        switch (langCode) {
+            case 'en':
+                flagSrc = '~/img/flags/en.png';
+                break;
+            case 'ar':
+                flagSrc = '~/img/flags/ar.png';
+                break;
+            case 'pl':
+                flagSrc = '~/img/flags/pl.png';
+                break;
+            case 'de':
+                flagSrc = '~/img/flags/de.png';
+                break;
+            default:
+                flagSrc = '~/img/flags/en.png';
+        }
+        document.getElementById('languageFlag').getElementsByTagName('img')[0].src = flagSrc;
+    }
+
+    function translatePage(lang) {
+        changeFlag(lang);
+        // Add your language switch logic here
+    }
+</script>
+
 </body>
 </html>

@@ -9,51 +9,75 @@
         padding: 0;
     }
 
-    .hero {
-        background-color: #ffe6cc; /* Light background color */
-        padding: 60px 20px;
-        text-align: center;
-        border-radius: 15px;
-        margin: 20px;
+    #welcome {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #FFEDE9;
+        padding: 30px 40px;
+        border-radius: 30px;
+        margin: 30px;
         position: relative;
+        border: 1px solid #F48C4A;
+        overflow: hidden;
     }
 
-        .hero img {
-            position: absolute;
-            right: 10px; /* Adjusted from 20px for closer positioning to the right border */
-            top: 10px;
-            height: 50px; /* Adjusted height for a smaller flag */
-            width: auto; /* Ensure the image maintains its aspect ratio */
-            border-radius: 15px; /* Optional: Adjust the border radius if needed */
+    .welcome-text {
+        max-width: 80%;
+    }
+
+        .welcome-text h1 {
+            font-size: 32px;
+            font-family: 'Merriweather', serif;
+            color: #533535;
         }
 
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #333;
+        .welcome-text p {
+            font-size: 20px;
+            font-family: 'Poppins', sans-serif;
+            color: #533535;
         }
 
-        .hero p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .hero .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
+        .welcome-text button {
+            padding: 20px 20px;
+            background-color: #3E4997;
             color: white;
-            background-color: #f57c00;
+            border: none;
             border-radius: 5px;
-            text-decoration: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
         }
 
-            .hero .cta-button:hover {
-                background-color: #ef6c00;
-            }
+    .welcome-image {
+        position: relative;
+        width: 50%; /* Ensure the image container takes up 50% of the section */
+        display: flex; /* Use flex to align content */
+        justify-content: center; /* Center image horizontally */
+        align-items: center; /* Center image vertically */
+    }
+
+        .welcome-image img {
+            border-radius: 0px;
+            max-width: 100%; /* Make image fill its container */
+            height: auto;
+            position: relative;
+            z-index: 10;
+            display: block; /* Remove any inline spacing */
+            margin: 0; /* Remove default margin */
+        }
+
+        .welcome-image::before {
+            content: '';
+            background-color: #F48C4A;
+            width: 300px; /* Adjusted circle size */
+            height: 300px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
 
     .section {
         padding: 60px 20px;
@@ -256,11 +280,15 @@
 <div class="text-center">
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <h1>Welcome to ALEF Online Academy!</h1>
-            <p>Unlock your potential with expert language instruction from the comfort of your home. Join us today and start mastering!</p>
-            <a href="#courses" class="cta-button">Start learning</a>
-            <img src="~/img/England.png" alt="Hero Image">
+        <section id="welcome">
+            <div class="welcome-text">
+                <h1>Welcome to ALEF Online Academy!</h1>
+                <p>Unlock your potential with expert language instruction from the comfort of your home. Join us today and start mastering!</p>
+                <button>Start Learning</button>
+            </div>
+            <div class="welcome-image">
+                <img src="~/img/Image header.png" alt="Welcome Image">
+            </div>
         </section>
 
         <!-- Courses Section -->
@@ -298,21 +326,21 @@
         <section id="testimonials" class="testimonials section">
             <h2>Testimonials from Students</h2>
             <div class="testimonial">
-                <img src="path/to/student1.jpg" alt="Student 1">
+                <img src="~/img/student 1.png" alt="Student 1">
                 <div>
                     <p>"ALEF Online Academy has transformed my English skills. The teachers are knowledgeable and the lessons are engaging. I highly recommend it!"</p>
                     <h4>Yana D. - English Course Student</h4>
                 </div>
             </div>
             <div class="testimonial">
-                <img src="path/to/student2.jpg" alt="Student 2">
+                <img src="~/img/student 2.png" alt="Student 2">
                 <div>
                     <p>"Learning German at ALEF has been a wonderful experience. The interactive classes and cultural tips have really helped me understand the language better."</p>
                     <h4>Anna S. - German Course Student</h4>
                 </div>
             </div>
             <div class="testimonial">
-                <img src="path/to/student3.jpg" alt="Student 3">
+                <img src="~/img/student 3.png" alt="Student 3">
                 <div>
                     <p>"The Spanish course at ALEF is top-notch. The lessons are fun and the instructors are very supportive."</p>
                     <h4>Carlos R. - Spanish Course Student</h4>
