@@ -59,7 +59,7 @@ namespace Alef_Academy_Main.Controllers
                     _context.Internships.Add(internship);
                     _context.SaveChanges();
 
-                    return RedirectToAction("ApplicationSucceess,Internship");
+                    return RedirectToAction("ApplicationSuccess", "Internships");
                 }
                 catch (Exception ex)
                 {
