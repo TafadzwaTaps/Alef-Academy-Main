@@ -17,7 +17,6 @@ namespace Alef_Academy_Main.Database
         public DbSet<Courses> Courses { get; set; }
         public DbSet<Enrollments> Enrollments { get; set; }
         public DbSet<Internships> Internships { get; set; }
-        public DbSet<Payments> Payments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,7 +36,6 @@ namespace Alef_Academy_Main.Database
             modelBuilder.Entity<Enrollments>().Property(p => p.EnrollmentDate).HasConversion(dateTimeConverter);
             modelBuilder.Entity<Enrollments>().Property(p => p.CompletionDate).HasConversion(dateTimeConverter);
             modelBuilder.Entity<Internships>().Property(p => p.applicationdate).HasConversion(dateTimeConverter);
-            modelBuilder.Entity<Payments>().Property(p => p.PaymentDate).HasConversion(dateTimeConverter);
 
             modelBuilder.Entity<ContactUs>(entity =>
             {
@@ -52,8 +50,6 @@ namespace Alef_Academy_Main.Database
                 entity.ToTable("internships");
                 entity.HasKey(s => s.applicationid);
             });
-
-            modelBuilder.Entity<Payments>().HasKey(r => r.Id);
         }
     }
 }
