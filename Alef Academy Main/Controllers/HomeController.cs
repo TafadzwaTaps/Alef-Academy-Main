@@ -13,9 +13,13 @@ namespace Alef_Academy_Main.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string lang = "en")
         {
-            return View();
+            if (lang == "pl")
+            {
+                return View("IndexPolish");
+            }
+            return View("Index");
         }
 
         public IActionResult Privacy()
